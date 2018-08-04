@@ -1,6 +1,7 @@
 #!groovy​
 podTemplate(label: 'pod-hugo-app', containers: [
-    containerTemplate(name: 'hugo', image: 'publysher/hugo', ttyEnabled: true, command: 'cat'),
+    containerTemplate(name: 'hugo', image: 'publysher/hugo', ttyEnabled: true, command: 'cat',
+        volumes: [hostPathVolume(hostPath: '/tmp', mountPath: '/tmp')]),    
     containerTemplate(name: 'html-proofer', image: 'smesch/html-proofer', ttyEnabled: true, command: 'cat'),
     containerTemplate(name: 'kubectl', image: 'smesch/kubectl', ttyEnabled: true, command: 'cat',
         volumes: [secretVolume(secretName: 'kube-config', mountPath: '/root/.kube')]),
