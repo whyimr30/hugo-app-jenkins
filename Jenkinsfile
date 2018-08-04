@@ -21,7 +21,7 @@ podTemplate(label: 'pod-hugo-app', containers: [
  
             container('hugo') {
                 stage('Build Hugo Site') {
-                    sh ("cat /tmp")
+                    sh ("ls /tmp")
                 }
             }
     
