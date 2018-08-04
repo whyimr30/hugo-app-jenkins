@@ -21,7 +21,7 @@ podTemplate(label: 'pod-hugo-app', containers: [
  
             container('hugo') {
                 stage('Build Hugo Site') {
-                    sh ("ls /tmp")
+                    sh ("hugo --uglyURLs --cacheDir ~/hugo_cache/")
                 }
             }
     
